@@ -7,7 +7,7 @@ This repo polls Coinbase API for various cryptocurrency prices and uses [Redpand
 - Docker (min of 4GB memory)
 - Python 3.7+
 
-Note: the Kafka Connect image is compiled for AMD64 architecture. While Docker may utilize Rosetta 2 to run AMD64 images on ARM64 architectures (e.g. Mac M1), it may have degraded performance. 
+Note: the Kafka Connect image is compiled for AMD64 architecture. While Docker may utilize Rosetta 2 to run AMD64 images on ARM64 architectures (e.g. Mac M1), it may have degraded performance.
 
 ## Structure
 

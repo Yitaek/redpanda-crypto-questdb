@@ -1,5 +1,5 @@
-import pandas as pd 
-import numpy as np 
+import pandas as pd
+import numpy as np
 import datetime as dt
 
 from kafkaHelper import produceRecord, consumeRecord, initConsumer, initProducer
