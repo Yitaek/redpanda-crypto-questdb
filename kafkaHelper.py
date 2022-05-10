@@ -37,7 +37,7 @@ def on_send_error(excp):
 
 def produceRecord(data, producer, topic, partition=0):
     # act as a producer sending records on kafka
-    print("hello?")
+    # print("hello?")
     # future = producer.send(topic=topic, partition=partition, value=data)
     # try:
     #     record_metadata = future.get(timeout=10)
