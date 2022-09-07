@@ -7,7 +7,7 @@ This repo polls Coinbase API for various cryptocurrency prices and uses [Redpand
 - Docker (min of 4GB memory)
 - Python 3.7+
 
-Note: the Kafka Connect image is compiled for AMD64 architecture. While Docker may utilize Rosetta 2 to run AMD64 images on ARM64 architectures (e.g. Mac M1), it may have degraded performance. 
+Note: the Kafka Connect image is compiled for AMD64 architecture. While Docker may utilize Rosetta 2 to run AMD64 images on ARM64 architectures (e.g. Mac M1), it may have degraded performance.
 
 ## Structure
 
@@ -25,35 +25,35 @@ Note: the Kafka Connect image is compiled for AMD64 architecture. While Docker m
 
 Start up the Redpanda/QuestDB stack:
 
-```
+```sh
 cd docker-compose
 docker-compose up -d
 ```
 
 Wait until all the components are healthy (look at Kafka Connect container logs).
 
-Post postgres-sink-btc schema to Kafka Connect:
+Post postgres-sink connector schemas to Kafka Connect:
 
-```
-curl -X POST -H "Accept:application/json" -H "Content-Type:application/json" --data @postgres-sink-btc.json http://localhost:8083/connectors
+```sh
+docker-compose/add_connectors.sh
 ```
 
 ### Python Setup
 
 Install the necessary packages:
 
-```
+```sh
 pip install -r requirements.txt
 ```
 
 Run the script to poll Coinbase API:
 
-```
+```sh
 python getData.py
 ```
 
 (Optional): calculate moving averages
 
-```
+```sh
 python movingAverage.py
 ```

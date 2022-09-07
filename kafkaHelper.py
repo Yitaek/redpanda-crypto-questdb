@@ -37,7 +37,7 @@ def on_send_error(excp):
 
 def produceRecord(data, producer, topic, partition=0):
     # act as a producer sending records on kafka
-    print("hello?")
+    # print("hello?")
     # future = producer.send(topic=topic, partition=partition, value=data)
     # try:
     #     record_metadata = future.get(timeout=10)
@@ -48,7 +48,9 @@ def produceRecord(data, producer, topic, partition=0):
 
     # produce json messages
     # produce asynchronously with callbacks
-    producer.send('my-topic', b'raw_bytes').add_callback(on_send_success).add_errback(on_send_error)
+    producer.send(topic=topic, partition=partition, value=data).add_callback(
+        on_send_success
+    ).add_errback(on_send_error)
 
     # debug \ message in prompt
     print('Produce record to topic \'{0}\' at time {1}'.format(topic, dt.datetime.utcnow()))
