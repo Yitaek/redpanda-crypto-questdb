@@ -10,7 +10,7 @@ params = {
 }
 
 config = {
-  # kafka
+  # redpanda
   'kafka_broker': 'localhost:9092',
   # topics
   'topic_1': 'topic_{0}'.format(params['currency_1']),
